@@ -19,10 +19,10 @@ class AuthController extends Controller
 
         $validate= Validator::make($registrationData,[
             'username'=>'required',
-            'email'=>'required',
+            'email'=>'required|email',
             'password'=>'required',
             'tanggalLahir' => 'required',
-            'telepon' => 'required'
+            'telepon' => 'required|numeric|digits_between:11,13|'
         ]);        
 
         if($validate->fails()){

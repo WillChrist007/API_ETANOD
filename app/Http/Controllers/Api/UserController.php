@@ -59,9 +59,9 @@ class UserController extends Controller
         $validate = Validator::make($updateData, [
             'username'=>'required',
             'password'=>'required',
-            'email'=>'required',
+            'email'=>'required|email',
             'tanggalLahir'=>'required',
-            'telepon'=>'required'
+            'telepon'=>'required|numeric|digits_between:11,13|'
         ]);
 
         if($validate->fails())
