@@ -67,9 +67,12 @@ class UserController extends Controller
         if($validate->fails())
             return response(['message' => $validate->error()], 400);
 
-        $user->nama = $updateData['nama'];
+        $user->username = $updateData['username'];
         $user->email = $updateData['email'];
-        $user->password = $updateData['password'];
+        $user->password = $updateData['password']=bcrypt($request->password);
+        $user->email = $updateData['email'];
+        $user->tanggalLahir = $updateData['tanggalLahir'];
+        $user->telepon = $updateData['telepon'];
 
         if($user->save()){
             return response([

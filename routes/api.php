@@ -30,6 +30,12 @@ Route::post('logout', 'Api\AuthController@logout');
     Route::delete('fundraising/{id}', 'Api\FundraisingController@destroy');
     Route::post('logout', 'Api\AuthController@logout');
 
+    Route::get('volunteer', 'Api\VolunteerController@index');
+    Route::get('volunteer/{id}', 'Api\VolunteerController@show');
+    Route::post('volunteer', 'Api\VolunteerController@store');
+    Route::put('volunteer/{id}', 'Api\VolunteerController@update');
+    Route::delete('volunteer/{id}', 'Api\VolunteerController@destroy');
+    Route::post('logout', 'Api\AuthController@logout');
 
 
     Route::get('user', 'Api\UserController@index');
